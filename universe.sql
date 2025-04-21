@@ -132,7 +132,7 @@ ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
 
 CREATE TABLE public.phenomenon (
     phenomenon_id integer NOT NULL,
-    name text,
+    name character varying NOT NULL,
     description text
 );
 
@@ -441,6 +441,14 @@ ALTER TABLE ONLY public.moon
 
 
 --
+-- Name: phenomenon phenomenon_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.phenomenon
+    ADD CONSTRAINT phenomenon_name_key UNIQUE (name);
+
+
+--
 -- Name: phenomenon phenomenon_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
@@ -523,3 +531,4 @@ ALTER TABLE ONLY public.star
 --
 -- PostgreSQL database dump complete
 --
+
